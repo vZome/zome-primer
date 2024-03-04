@@ -1,2 +1,3 @@
 # zome-primer
-Source code for The Annotated Zome Primer web page
+
+This repository contains the source code for The Annotated Zome Primer web page.

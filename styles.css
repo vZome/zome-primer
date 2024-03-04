@@ -1,0 +1,149 @@
+body {
+  user-select: none;
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: min-content 1fr;
+  grid-template-areas:
+    "title    title"
+    "original annotations";
+}
+
+.safe-grid-item {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.centered-scroller {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: auto;
+}
+
+.scroller-content {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.annotated-page {
+  position: relative;
+}
+/* When you mouse over the container, fade in the overlay title */
+.annotation:hover {
+  opacity: 1;
+}
+
+.page-image {
+  width: 100%;
+}
+
+.annotation {
+  position: absolute;
+  border: 2px solid #fbdc3e;
+  
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.25); /* Black see-through */
+  color: #f1f1f1;
+  width: 100%;
+  transition: .5s ease;
+  opacity:0;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+#annotations {
+  grid-area: annotations;
+  width: 100%;
+  height: 100%;
+  border-block-start: 1px solid gray;
+}
+
+#hint {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  font-size: large;
+  font-style: italic;
+  height: 100%;
+  color: gray;
+}
+
+#viewer {
+  width: 100%;
+  height: 100%
+}
+
+#title {
+  grid-area: title;
+  margin: auto;
+}
+
+#original {
+  grid-area: original;
+  border-block-start: 1px solid gray;
+}
+
+#buttons {
+  grid-area: buttons;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-block-start: 8px;
+  margin-inline-end: 8px;
+}
+
+button {
+  font-size: xx-large;
+}
+
+.trigger {
+  text-decoration: none;
+  color: #fbdc3e;
+  background: rgb(0, 0, 0);
+  background: rgba(0, 0, 0, 0.45); /* Black see-through */
+  border: 1px solid #fbdc3e;
+  border-radius: 5px;
+  max-width: fit-content;
+  margin: auto;
+  padding-inline: 10px;
+  padding-block: 6px;
+}
+
+img {
+  display: block;
+  margin: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-aspect-ratio: 1/1) {
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content 1fr 1fr;
+    grid-template-areas:
+      "title"
+      "annotations"
+      "original";
+  }
+
+  h2 {
+    font-size: 1.4em;
+    margin-block: 0.4em;
+  }
+
+  #original {
+    margin-block-start: 8px;
+  }
+}
